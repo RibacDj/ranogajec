@@ -3,12 +3,13 @@
   --font-family-sans-serif: "Helvetica Neue", Helvetica, Arial, sans-serif;
 
   --grey-border: #eee;
-  --grey-text: #aaa;
+  --grey-text: #E3E3E3;
   --black: #000;
   --white: #fff;
-  --blue: #000080;
+  --blue: #243A62;
   --lavender: #e6e6fa;
-  --slate-blue: #6a5acd;
+  --light-blue: #E5EEF7;
+  --border-blue: #7A8AAF;
 }
 
 @custom-media --sm (max-width: 500px);

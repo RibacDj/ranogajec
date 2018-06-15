@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import moment from 'moment';
 
 class GamesList extends Component {
   static propTypes = {
@@ -54,12 +55,18 @@ class GamesList extends Component {
     const { games } = this.props;
 
     return games.map((game) => {
-      const gameDateTime = new Date(game.dateTime);
+      const gameDateTime = moment(new Date(game.dateTime));
+      const formatGameDateTime = gameDateTime.format('MMMM ddd D, YYYY h:mm A');
 
       return (
         <div key={game.id} className='Games-gameBlock'>
           <div className='Games-gameHeader'>
             {`${game.category.name} | ${game.category.subCategory}`}
+          </div>
+          <div className='Games-periodBlock'>
+            <div className='Games-period'>
+              2nd Half
+            </div>
           </div>
           <div className='Games-infoNames'>
             <span className='Games-infoName'> Spread </span>
@@ -67,7 +74,7 @@ class GamesList extends Component {
             <span className='Games-infoName'> Total Points </span>
           </div>
           <div className='Games-gameDateTime'>
-            {gameDateTime.toDateString()}
+            {formatGameDateTime}
           </div>
           <div className='Games-teamList'>
             {this.renderTeamInfo(game, 'away')}
