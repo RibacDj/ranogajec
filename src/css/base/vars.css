@@ -1,0 +1,17 @@
+:root {
+  --font-family-serif: Garamond, "Times New Roman", serif;
+  --font-family-sans-serif: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  --grey-border: #eee;
+  --grey-text: #aaa;
+  --black: #000;
+  --white: #fff;
+  --blue: #000080;
+  --lavender: #e6e6fa;
+  --slate-blue: #6a5acd;
+}
+
+@custom-media --sm (max-width: 500px);
+@custom-media --md (min-width: 769px);
+@custom-media --lg (min-width: 1025px);
+@custom-media --xl (min-width: 1800px);
