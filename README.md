@@ -17,6 +17,6 @@ npm start
 # or
 npm run client:dev
 ```
-
+Visit http://localhost:8080/ from your browser of choice. Server is visible from the local network as well.
 
 
