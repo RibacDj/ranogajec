@@ -1,4 +1,4 @@
 @import "base/vars";
 @import "base/reset";
 @import "base/app";
-@import "base/games";
+@import "components/gamesList";

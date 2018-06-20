@@ -12,7 +12,6 @@ function createGetGames() {
   return function* (options) { // eslint-disable-line consistent-return
     try {
       const data = yield call(() => api.getGames(options.id));
-      console.log('aaaa', data);
       const action = { type: GET_GAMES_SUCCESS, data };
 
       yield put(action);

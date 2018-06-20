@@ -1,13 +1,10 @@
-.Game-list {
-}
-
-.Games-gameBlock {
+.GamesList-gameBlock {
   width: 100%;
   margin-bottom: 4rem;
   border: 1px solid var(--grey-text);
 }
 
-.Games-gameHeader {
+.GamesList-gameHeader {
   width: 100%;
   background-color: var(--blue);
   color: white;
@@ -18,19 +15,19 @@
   border: 1px solid var(--blue);
 }
 
-.Games-infoNames {
+.GamesList-infoNames {
   display: flex;
   justify-content: flex-end;
 }
 
-.Games-infoName {
+.GamesList-infoName {
   flex-basis: 20%;
   font-size: 1.5rem;
   padding-bottom: 0.2rem;
   font-weight: bold;
 }
 
-.Games-gameDateTime {
+.GamesList-gameDateTime {
   height: 2.5rem;
   background: var(--grey-text);
   padding-left: 1rem;
@@ -39,13 +36,13 @@
   align-items: center;
 }
 
-.Games-teamInfo {
+.GamesList-teamInfo {
   display: flex;
   height: 4rem;
   align-items: center;
 }
 
-.Games-teamId {
+.GamesList-teamId {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -53,41 +50,43 @@
   font-size: 1rem;
 }
 
-.Games-teamName {
+.GamesList-teamName {
   flex-basis: 30%;
   font-size: 1.5rem;
   font-weight: bold;
 }
 
-.Games-teamStats {
+.GamesList-teamStats {
   flex-basis: 20%;
 }
 
-.Games-statsButton {
+.GamesList-statsButton {
   font-size: 1.3rem;
   background: var(--light-blue);
   border-radius: 0.2rem;
   width: 9.5rem;
   border-color: var(--border-blue);
-  box-shadow: 0 2px 1px 1px var(--border-blue)
+  box-shadow: 0 2px 1px 1px var(--border-blue);
+  padding-left: 0;
+  padding-right: 0;
 }
 
-.Games-statsButton:hover {
+.GamesList-statsButton:hover {
   background: var(--light-blue);
 }
 
-.Games-teamList {
+.GamesList-teamList {
   padding: 0.5rem 0;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
 }
 
-.Games-periodBlock {
+.GamesList-periodBlock {
   display: flex;
 }
 
-.Games-period {
+.GamesList-period {
   flex-basis: 15%;
   height: 5rem;
   border-bottom: 4px solid var(--blue);
