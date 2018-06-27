@@ -13,7 +13,7 @@ import SportsList from 'components/games/SportsList';
   games: state.games.get('games'),
   sports: state.sports.get('sports'),
   sportsLoading: state.sports.get('sportsLoading'),
-  sportsError: state.sports.get('sportsError')
+  sportsError: state.sports.get('sportsError'),
 }))
 class Games extends Component {
   static propTypes = {
@@ -21,6 +21,8 @@ class Games extends Component {
     loading: PropTypes.bool,
     games: PropTypes.array,
     sports: PropTypes.array,
+    sportsError: PropTypes.string,
+    sportsLoading: PropTypes.bool,
     // from react-redux
     dispatch: PropTypes.func,
   };
@@ -29,14 +31,14 @@ class Games extends Component {
     const {
       games,
       dispatch,
-      sports
+      sports,
     } = this.props;
 
-    if(!games) {
+    if (!games) {
       dispatch(getGames());
     }
 
-    if(!sports) {
+    if (!sports) {
       dispatch(getSports());
     }
   }
@@ -48,7 +50,7 @@ class Games extends Component {
       games,
       sports,
       sportsError,
-      sportsLoading
+      sportsLoading,
     } = this.props;
 
     return (
@@ -56,12 +58,12 @@ class Games extends Component {
         <div className='Games-sportsList'>
           {sportsLoading && <div>Sports loading...</div>}
           {sportsError && sportsError.toString() }
-          {sports && <SportsList sports={sports}/> }
+          {sports && <SportsList sports={ sports } /> }
         </div>
         <div className='Games-gameList'>
           { loading && <div>Loading games...</div> }
           { error && error.toString() }
-          { games && <GamesList games={games}/>}
+          { games && <GamesList games={ games } />}
         </div>
       </div>
     );
