@@ -2,3 +2,5 @@
 @import "base/reset";
 @import "base/app";
 @import "components/gamesList";
+@import "components/sportsList";
+@import "components/games";

@@ -120,9 +120,27 @@ function getGames() {
 //     }
 //   };
 
+//   return fetchResource('sport/active', data);
+// }
+
+function getSports(){
+  return fetchResource('sports');
+}
+
+// function getSports() {
+//   const authBase64 = btoa('FFTEST:T3$+');
+
+//   const data = {
+//     'method': 'get',
+//     headers: {
+//       'Authorization': `Basic ${authBase64}`
+//     }
+//   };
+
 //   return fetchResource('lines/all', data);
 // }
 
 export default {
   getGames,
+  getSports,
 };

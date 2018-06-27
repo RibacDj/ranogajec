@@ -1,0 +1,12 @@
+.Games {
+  display: flex;
+  justify-content: space-between;
+}
+
+.Games-gameList {
+  flex-basis: 68%;
+}
+
+.Games-sportsList {
+  flex-basis: 30%;
+}

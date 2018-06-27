@@ -1,0 +1,61 @@
+.SportsList {
+  list-style: none;
+  margin: 0;
+}
+
+.SportsList-item {
+  width: 100%;
+  overflow: hidden;
+}
+
+.SportsList-itemButton {
+  width: 100%;
+  height: 6rem;
+  border-radius: 0;
+  border: 1px solid var(--grey-border);
+  text-align: left;
+  color: var(--text-blue);
+  font-weight: bold;
+  background-color: var(--grey);
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  padding-left: 1rem;
+
+}
+
+.SportsList-itemButton:hover {
+  background: var(--grey-light);
+}
+
+.SportsList-sportLeaguesList {
+  display: flex;
+  flex-direction: column;
+}
+
+.SportsList-leagueButton {
+  width: 100%;
+  height: 6rem;
+  border-radius: 0;
+  background-color: var(--grey-light);
+  border: 1px solid var(--grey-border);
+  text-align: left;
+  color: var(--text-blue);
+  font-size: 1.4rem;
+}
+
+.SportsList-sportLeaguesList {
+  height: 0;
+  transition: height 0.5s;
+}
+
+.SportsList-sportLeaguesList--open {
+  max-height: 30rem;
+}
+
+.SportsList-icon {
+  width: 3rem;
+  height: 3rem;
+  padding-right: 1rem;
+}
+

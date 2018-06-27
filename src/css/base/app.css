@@ -128,7 +128,7 @@ button:hover {
 }
 
 .Page {
-  max-width: 60rem;
+  max-width: 80rem;
   margin: 0 auto;
 
   @media (--lg) {
@@ -140,5 +140,9 @@ hr {
   border: 0;
   border-top: 1px solid var(--grey-border);
   margin: 2rem 0;
+}
+
+button:focus {
+  outline:0;
 }
 
