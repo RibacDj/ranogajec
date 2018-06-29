@@ -51,6 +51,7 @@ class Games extends Component {
       sports,
       sportsError,
       sportsLoading,
+      dispatch,
     } = this.props;
 
     return (
@@ -58,7 +59,12 @@ class Games extends Component {
         <div className='Games-sportsList'>
           {sportsLoading && <div>Sports loading...</div>}
           {sportsError && sportsError.toString() }
-          {sports && <SportsList sports={ sports } /> }
+          {sports && (
+            <SportsList
+              dispatch={ dispatch }
+              sports={ sports }
+            />
+          )}
         </div>
         <div className='Games-gameList'>
           { loading && <div>Loading games...</div> }

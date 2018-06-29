@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const path = require('path');
 
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const SpriteLoaderPlugin = require('svg-sprite-loader/plugin');
 
 const paths = {
   source: path.join(__dirname, '../src'),
@@ -40,6 +41,9 @@ const plugins = [
       HYDRATE: JSON.stringify(HYDRATE) === 'true',
     },
   }),
+  new SpriteLoaderPlugin({
+    plainSprite: true
+  }),
 ];
 
 if (IS_DEVELOPMENT) {
@@ -67,20 +71,7 @@ const rules = [
     test: /\.svg$/,
     use: [
       {
-        loader: 'babel-loader',
-      },
-      {
-        loader: 'react-svg-loader',
-        options: {
-          svgo: {
-            plugins: [
-              {
-                removeTitle: true,
-              },
-            ],
-            floatPrecision: 3,
-          },
-        },
+        loader: 'svg-sprite-loader'
       },
     ],
     include: paths.svg,

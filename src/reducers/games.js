@@ -4,6 +4,9 @@ import {
   GET_GAMES_START,
   GET_GAMES_ERROR,
   GET_GAMES_SUCCESS,
+  GET_SPORT_GAMES_START,
+  GET_SPORT_GAMES_ERROR,
+  GET_SPORT_GAMES_SUCCESS,
 } from 'actions/games';
 
 const initialState = Map({
@@ -28,6 +31,26 @@ const actionsMap = {
     }));
   },
   [GET_GAMES_SUCCESS]: (state, action) => {
+    return state.merge(Map({
+      loading: false,
+      games: action.data,
+    }));
+  },
+  [GET_SPORT_GAMES_START]: (state) => {
+    return state.merge(Map({
+      loading: true,
+      error: null,
+      games: state.games,
+    }));
+  },
+  [GET_SPORT_GAMES_ERROR]: (state, action) => {
+    return state.merge(Map({
+      loading: false,
+      error: action.error.message,
+      games: state.games,
+    }));
+  },
+  [GET_SPORT_GAMES_SUCCESS]: (state, action) => {
     return state.merge(Map({
       loading: false,
       games: action.data,

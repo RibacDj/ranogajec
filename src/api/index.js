@@ -123,7 +123,17 @@ function getGames() {
 //   return fetchResource('sport/active', data);
 // }
 
-function getSports(){
+
+function getSportGames(id, sport, league) {
+  const sportGamesUrl = `games/${ sport.toLowerCase() }/${ league.toLowerCase() }`;
+  return fetchResource(sportGamesUrl);
+}
+
+// function getSportGames() {
+
+// }
+
+function getSports() {
   return fetchResource('sports');
 }
 
@@ -143,4 +153,5 @@ function getSports(){
 export default {
   getGames,
   getSports,
+  getSportGames,
 };

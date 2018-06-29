@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-// import SoccerSvg from 'assets/svg/soccer.svg';
+import { getSportGames } from 'actions/games';
 
 class SportsList extends Component {
   static propTypes = {
     sports: PropTypes.array,
+    dispatch: PropTypes.func,
   };
 
   constructor() {
@@ -15,6 +16,7 @@ class SportsList extends Component {
     };
 
     this.handleSportButtonClick = this.handleSportButtonClick.bind(this);
+    this.handleSportLeagueButtonClick = this.handleSportLeagueButtonClick.bind(this);
   }
 
   handleSportButtonClick(sportName) {
@@ -25,10 +27,17 @@ class SportsList extends Component {
     });
   }
 
+  handleSportLeagueButtonClick(sport, league) {
+    const { dispatch } = this.props;
+
+    dispatch(getSportGames(sport, league));
+  }
+
   renderSportLeagues(sport) {
     return sport.leagues.map(league => {
       return (
         <button
+          onClick={() => this.handleSportLeagueButtonClick(sport.name, league) }
           key={ `${ sport.name }-${ league }` }
           className='SportsList-leagueButton'
         >
@@ -47,7 +56,7 @@ class SportsList extends Component {
         'height': `${ 60 * sport.leagues.length }px`,
       };
 
-      // const SportIcon = this.getSportsIcon(sport.name);
+      const sportIconName = sport.name.split(' ')[0].toLowerCase();
 
       return (
         <li key={ sport.name } className='SportsList-item'>
@@ -55,6 +64,9 @@ class SportsList extends Component {
             className='SportsList-itemButton'
             onClick={ () => this.handleSportButtonClick(sport.name) }
           >
+            <svg className='SportsList-icon'>
+              <use xlinkHref={ `#${ sportIconName }` } />
+            </svg>
             {sport.name}
           </button>
           <div className='SportsList-sportLeaguesList' style={ openSport === sport.name ? sportLeaguesListOpen : null }>
@@ -67,9 +79,11 @@ class SportsList extends Component {
 
   render() {
     return (
-      <ul className='SportsList'>
-        { this.renderSportsList() }
-      </ul>
+      <div>
+        <ul className='SportsList'>
+          { this.renderSportsList() }
+        </ul>
+      </div>
     );
   }
 }

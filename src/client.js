@@ -15,6 +15,11 @@ import 'index.css';
 
 const store = configureStore().store;
 
+function requireAll(r) {
+  r.keys().forEach(r);
+}
+requireAll(require.context('./assets/svg', true, /\.svg$/));
+
 // When used with server dehydrated state "ReactDOM.hydrate" should be called
 const renderMethod = process.env.HYDRATE ? ReactDOM.hydrate : ReactDOM.render;
 

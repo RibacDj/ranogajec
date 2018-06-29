@@ -4,7 +4,7 @@ import moment from 'moment';
 
 class GamesList extends Component {
   static propTypes = {
-    games: PropTypes.array
+    games: PropTypes.array,
   };
 
   /**
@@ -42,9 +42,9 @@ class GamesList extends Component {
     let valueToString = Math.abs(value).toString();
 
     if (value > 0) {
-      valueToString = `+ ${valueToString}`;
+      valueToString = `+ ${ valueToString }`;
     } else {
-      valueToString = `- ${valueToString}`;
+      valueToString = `- ${ valueToString }`;
     }
 
     return valueToString;
@@ -59,7 +59,7 @@ class GamesList extends Component {
   formatTeamSpread(spreadInfo, team) {
     const {
       isHomeFavorited,
-      points
+      points,
     } = spreadInfo;
 
     const valueToString = this.convertValueToString(spreadInfo[team]);
@@ -67,13 +67,13 @@ class GamesList extends Component {
     const leftover = points % 1;
     const leftoverToString = this.convertLeftoverToString(Math.abs(leftover));
 
-    let pointsToString = `${points - leftover}${leftoverToString}`;
+    let pointsToString = `${ points - leftover }${ leftoverToString }`;
 
     if (isHomeFavorited && team === 'away') {
-      pointsToString = `+${Math.abs(points) - Math.abs(leftover)}${leftoverToString}`;
+      pointsToString = `+${ Math.abs(points) - Math.abs(leftover) }${ leftoverToString }`;
     }
 
-    return `${pointsToString} ${valueToString}`;
+    return `${ pointsToString } ${ valueToString }`;
   }
 
   /**
@@ -91,14 +91,14 @@ class GamesList extends Component {
     const points = totalInfo.points - leftover;
     const prefix = team === 'away' ? 'O' : 'U';
 
-    return `${prefix} ${points}${leftoverToString} ${valueToString}`;
+    return `${ prefix } ${ points }${ leftoverToString } ${ valueToString }`;
   }
 
   renderTeamInfo(game, team) {
     const {
       total,
       moneyLine,
-      spread
+      spread,
     } = game.lines[0];
 
     const isDraw = team === 'draw';
@@ -112,11 +112,11 @@ class GamesList extends Component {
           {game[team].name}
         </div>
         <div className='GamesList-teamStats'>
-         { !isDraw &&
+          { !isDraw &&
             <button className='GamesList-statsButton'>
               <span dangerouslySetInnerHTML={{__html: this.formatTeamSpread(spread, team)}} />
             </button>
-         }
+          }
         </div>
         <div className='GamesList-teamStats'>
           <button className='GamesList-statsButton'>
@@ -142,9 +142,9 @@ class GamesList extends Component {
       const formatGameDateTime = gameDateTime.format('MMMM ddd D, YYYY h:mm A');
 
       return (
-        <div key={game.id} className='GamesList-gameBlock'>
+        <div key={ game.id } className='GamesList-gameBlock'>
           <div className='GamesList-gameHeader'>
-            {`${game.category.name} | ${game.category.subCategory}`}
+            {`${ game.category.name } | ${ game.category.subCategory }`}
           </div>
           <div className='GamesList-periodBlock'>
             <div className='GamesList-period'>
