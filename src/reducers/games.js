@@ -13,6 +13,10 @@ const initialState = Map({
   loading: false,
   error: null,
   games: null,
+  activeSportData: {
+    sportName: 'All sports',
+    leagueName: 'All leagues',
+  },
 });
 
 const actionsMap = {
@@ -54,6 +58,10 @@ const actionsMap = {
     return state.merge(Map({
       loading: false,
       games: action.data,
+      activeSportData: {
+        sportName: action.sport,
+        leagueName: action.league,
+      },
     }));
   },
 };

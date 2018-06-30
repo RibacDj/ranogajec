@@ -143,14 +143,6 @@ class GamesList extends Component {
 
       return (
         <div key={ game.id } className='GamesList-gameBlock'>
-          <div className='GamesList-gameHeader'>
-            {`${ game.category.name } | ${ game.category.subCategory }`}
-          </div>
-          <div className='GamesList-periodBlock'>
-            <div className='GamesList-period'>
-              {game.lines[0].period.description}
-            </div>
-          </div>
           <div className='GamesList-infoNames'>
             <span className='GamesList-infoName'> Spread </span>
             <span className='GamesList-infoName'> Money Line </span>

@@ -11,6 +11,7 @@ import SportsList from 'components/games/SportsList';
   error: state.games.get('error'),
   loading: state.games.get('loading'),
   games: state.games.get('games'),
+  activeSportData: state.games.get('activeSportData'),
   sports: state.sports.get('sports'),
   sportsLoading: state.sports.get('sportsLoading'),
   sportsError: state.sports.get('sportsError'),
@@ -23,6 +24,7 @@ class Games extends Component {
     sports: PropTypes.array,
     sportsError: PropTypes.string,
     sportsLoading: PropTypes.bool,
+    activeSportData: PropTypes.object,
     // from react-redux
     dispatch: PropTypes.func,
   };
@@ -52,6 +54,10 @@ class Games extends Component {
       sportsError,
       sportsLoading,
       dispatch,
+      activeSportData: {
+        sportName,
+        leagueName,
+      },
     } = this.props;
 
     return (
@@ -69,7 +75,19 @@ class Games extends Component {
         <div className='Games-gameList'>
           { loading && <div>Loading games...</div> }
           { error && error.toString() }
-          { games && <GamesList games={ games } />}
+          { games &&
+            <div>
+              <div className='Games-listHeader'>
+                {`${ sportName } | ${ leagueName }`}
+              </div>
+              <div className='Games-periodBlock'>
+                <div className='Games-period'>
+                  Game
+                </div>
+              </div>
+              <GamesList games={ games } />
+            </div>
+          }
         </div>
       </div>
     );

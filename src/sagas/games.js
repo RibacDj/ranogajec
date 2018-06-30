@@ -34,10 +34,15 @@ export function* getGamesWatcher() {
 
 function createGetSportGames() {
   return function* (options) { // eslint-disable-line consistent-return
-    console.log('mmmm', options);
     try {
-      const data = yield call(() => api.getSportGames(options.id, options.sport, options.league));
-      const action = { type: GET_SPORT_GAMES_SUCCESS, data };
+      const { id, sport, league } = options;
+      const data = yield call(() => api.getSportGames(id, sport, league));
+      const action = {
+        type: GET_SPORT_GAMES_SUCCESS,
+        data,
+        sport,
+        league,
+      };
 
       yield put(action);
     } catch (error) {
