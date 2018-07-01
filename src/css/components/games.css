@@ -21,18 +21,3 @@
   height: 4rem;
   border: 1px solid var(--blue);
 }
-
-
-.Games-periodBlock {
-  display: flex;
-}
-
-.Games-period {
-  flex-basis: 15%;
-  height: 5rem;
-  border-bottom: 4px solid var(--blue);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.5rem;
-}

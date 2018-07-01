@@ -16,6 +16,7 @@ const initialState = Map({
   activeSportData: {
     sportName: 'All sports',
     leagueName: 'All leagues',
+    periods: [],
   },
 });
 
@@ -61,6 +62,7 @@ const actionsMap = {
       activeSportData: {
         sportName: action.sport,
         leagueName: action.league,
+        periods: action.sportPeriods,
       },
     }));
   },

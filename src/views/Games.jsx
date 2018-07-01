@@ -6,6 +6,7 @@ import { getSports } from 'actions/sports';
 
 import GamesList from 'components/games/GamesList';
 import SportsList from 'components/games/SportsList';
+import PeriodsList from 'components/games/PeriodsList';
 
 @connect(state => ({
   error: state.games.get('error'),
@@ -57,6 +58,7 @@ class Games extends Component {
       activeSportData: {
         sportName,
         leagueName,
+        periods,
       },
     } = this.props;
 
@@ -80,11 +82,7 @@ class Games extends Component {
               <div className='Games-listHeader'>
                 {`${ sportName } | ${ leagueName }`}
               </div>
-              <div className='Games-periodBlock'>
-                <div className='Games-period'>
-                  Game
-                </div>
-              </div>
+              <PeriodsList periods={ periods } />
               <GamesList games={ games } />
             </div>
           }

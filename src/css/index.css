@@ -3,4 +3,5 @@
 @import "base/app";
 @import "components/gamesList";
 @import "components/sportsList";
+@import "components/periodsList";
 @import "components/games";

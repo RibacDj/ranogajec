@@ -150,8 +150,14 @@ function getSports() {
 //   return fetchResource('lines/all', data);
 // }
 
+function getSportPeriods(id, sport, league) {
+  const sportGamesUrl = `periods/${ sport.toLowerCase() }/${ league.toLowerCase() }`;
+  return fetchResource(sportGamesUrl);
+}
+
 export default {
   getGames,
   getSports,
   getSportGames,
+  getSportPeriods,
 };

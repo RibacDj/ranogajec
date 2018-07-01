@@ -37,9 +37,11 @@ function createGetSportGames() {
     try {
       const { id, sport, league } = options;
       const data = yield call(() => api.getSportGames(id, sport, league));
+      const sportPeriods = yield call(() => api.getSportPeriods(id, sport, league));
       const action = {
         type: GET_SPORT_GAMES_SUCCESS,
         data,
+        sportPeriods,
         sport,
         league,
       };
